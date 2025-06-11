@@ -21,10 +21,6 @@ This is a full-stack web application built with a React frontend and a Django/Po
 ### Backend Setup
 
 1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
-    ```
 
 2.  **Create a virtual environment and install Python dependencies:**
     ```bash
