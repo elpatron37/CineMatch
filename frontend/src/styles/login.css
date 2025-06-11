@@ -1,0 +1,107 @@
+/* src/styles/login.css */
+
+.login-page-wrapper {
+  /* Core layout: center the form */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  /* The background image */
+  background-image: linear-gradient(black,black); /* This path is relative to the public folder */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Add a dark overlay to make the text readable */
+.login-page-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.form-container {
+  /* Make the form pop on top of the overlay */
+  position: relative;
+  z-index: 2;
+
+  /* Styling */
+  max-width: 450px;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+  padding: 60px 68px 40px; /* Generous padding (top, sides, bottom) */
+  border-radius: 8px;
+  color: #ffffff; /* White text */
+}
+
+.form-container h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+/* --- The KEY fix for ugly input boxes --- */
+.form-container input {
+  /* Reset default styles */
+  appearance: none;
+  border: none;
+  outline: none;
+
+  /* Custom styles */
+  background-color: #333; /* Dark gray background */
+  border-radius: 4px;
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 20px;
+  color: #fff; /* White text when typing */
+  font-size: 1rem;
+  
+  /* Make them full width */
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  margin-bottom: 16px;
+}
+
+.form-container input:focus {
+  /* Highlight when focused */
+  background-color: #454545;
+}
+
+.form-container button {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  padding: 16px; /* Make button height consistent */
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.error-message {
+  background-color: #e87c03; /* A more subtle orange/yellow for errors */
+  color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.toggle-link {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #b3b3b3; /* Gray secondary text */
+  transition: color 0.2s;
+}
+
+.toggle-link:hover {
+  color: #fff; /* White on hover */
+  text-decoration: underline;
+}

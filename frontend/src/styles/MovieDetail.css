@@ -1,0 +1,88 @@
+/* src/styles/MovieDetail.css */
+
+.movie-detail-container {
+  position: relative;
+  padding-top: 50vh; /* Push content down */
+}
+
+.movie-detail-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  background-position: top center;
+  z-index: -1;
+}
+
+.movie-detail-backdrop::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(to top, var(--bg-primary) 10%, rgba(20, 20, 20, 0) 50%);
+}
+
+.movie-detail-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.movie-detail-poster img {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.movie-detail-info h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.release-year {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.meta-info {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.rating {
+  color: #46d369; /* Netflix Green */
+  font-weight: 600;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.genre-tag {
+  background-color: var(--bg-tertiary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.cast-list {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.like-button {
+  margin-top: 2rem;
+  background-color: rgba(47, 47, 47, 0.8);
+  border: 1px solid var(--text-secondary);
+}
+
+.like-button.liked {
+  background-color: var(--netflix-red);
+  border-color: var(--netflix-red);
+}

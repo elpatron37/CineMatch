@@ -1,0 +1,44 @@
+/* navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--text-primary);
+}
+
+/* Style for the active link */
+.navbar a.active {
+  color: var(--text-primary);
+  background-color: var(--accent-primary);
+}
+
+.nav-logo a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.nav-logo a:hover { background-color: transparent; }
+.nav-logo a.active { background-color: transparent; }
+
+
+.nav-links, .nav-profile {
+  display: flex;
+  gap: 1rem;
+}

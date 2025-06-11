@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-primary: #141414; /* Netflix Black */
+  --bg-secondary: #181818;
+  --bg-tertiary: #2F2F2F;
+  --text-primary: #E5E5E5;
+  --text-secondary: #B3B3B3;
+  --netflix-red: #E50914;
+  --netflix-red-hover: #F65261;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  padding: 2rem 4%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--netflix-red);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--netflix-red-hover);
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  background-color: var(--bg-tertiary);
+  border: 1px solid #555;
+  color: var(--text-primary);
+  padding: 16px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--text-primary);
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.error-message {
+  background-color: rgba(229, 9, 20, 0.2);
+  color: var(--text-primary);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--netflix-red);
+}

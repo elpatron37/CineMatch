@@ -1,0 +1,11 @@
+/* src/styles/search.css */
+.search-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-form input {
+  flex-grow: 1; /* Makes the input take up available space */
+  margin-bottom: 0;
+}
