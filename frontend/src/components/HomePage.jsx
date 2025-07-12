@@ -10,7 +10,7 @@ export default function HomePage() {
   const [heroMovie, setHeroMovie] = useState(null);
 
   useEffect(() => {
-    fetch('${process.env.REACT_APP_API_URL}/api/recommendations/')
+    fetch(`${process.env.REACT_APP_API_URL}/api/recommendations/`)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
