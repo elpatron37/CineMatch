@@ -19,7 +19,7 @@ export default function Discover({ token }) {
     setError(null);  // Clear previous errors
 
     try {
-      const res = await fetch(`/api/search/?q=${encodeURIComponent(query)}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/search/?q=${encodeURIComponent(query)}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

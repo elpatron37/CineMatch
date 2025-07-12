@@ -6,7 +6,7 @@ export default function Profile({ token, logout }) {
 
   useEffect(() => {
   if (token) { 
-    fetch("/api/me/", {
+    fetch("${process.env.REACT_APP_API_URL}/api/me/", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -15,7 +15,7 @@ export default function Profile({ token, logout }) {
 }, [token]);
 
   function handleDelete() {
-    fetch("/api/delete/", {
+    fetch("${process.env.REACT_APP_API_URL}/api/delete/", {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     }).then(() => logout());

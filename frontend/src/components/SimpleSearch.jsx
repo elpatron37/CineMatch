@@ -15,7 +15,7 @@ export default function SimpleSearch({ token }) {
     setIsLoading(true);
     setSearched(true);
     // HIT THE NEW ENDPOINT
-    const res = await fetch(`/api/simple-search/?q=${encodeURIComponent(query)}`, {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/simple-search/?q=${encodeURIComponent(query)}`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     const data = await res.json();

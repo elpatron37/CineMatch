@@ -14,7 +14,7 @@ export default function MovieDetail({ token }) {
 
   useEffect(() => {
     // Fetch movie details
-    fetch(`/api/movie/${movieId}/`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/movie/${movieId}/`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => res.ok ? res.json() : Promise.reject(res))
@@ -29,7 +29,7 @@ export default function MovieDetail({ token }) {
   }, [movieId, token]);
   
   const handleLike = () => {
-    fetch('/api/like/', {
+    fetch('${process.env.REACT_APP_API_URL}/api/like/', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,

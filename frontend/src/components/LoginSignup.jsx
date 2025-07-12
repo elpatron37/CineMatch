@@ -12,7 +12,9 @@ export default function LoginSignup({ onAuth }) {
     e.preventDefault(); 
     setError(""); 
     
-    const url = isLogin ? "/api/token/" : "/api/signup/";
+    const API_URL = process.env.REACT_APP_API_URL;
+    const endpoint = isLogin ? "/api/token/" : "/api/signup/";
+    const url = `${API_URL}${endpoint}`;
     const body = { username, password };
 
     try {

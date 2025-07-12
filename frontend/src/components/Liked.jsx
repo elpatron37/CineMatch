@@ -7,7 +7,7 @@ export default function Liked({ token }) {
 
   useEffect(() => {
     if (token) {
-      fetch('/api/like/', {
+      fetch('${process.env.REACT_APP_API_URL}/api/like/', {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` }
       })
