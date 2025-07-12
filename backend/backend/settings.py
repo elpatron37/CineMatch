@@ -9,12 +9,33 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 
-DEBUG = True #make false before deploying
+DEBUG = os.getenv('DEBUG', '0') == '1' #make false before deploying
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.getenv('RENDER_EXTERNAL_URL')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
+FRONTEND_URL = os.getenv('FRONTEND_URL')
 
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    FRONTEND_URL,
+] if FRONTEND_URL else []
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    FRONTEND_URL,
+] if FRONTEND_URL else []
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600
+    )
+}
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,3 +112,7 @@ USE_I18N = True
 USE_TZ = True
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
