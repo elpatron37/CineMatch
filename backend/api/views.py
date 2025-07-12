@@ -15,7 +15,12 @@ import requests
 
 
 User = get_user_model()
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = None
+def get_model():
+    global model
+    if model is None:
+        model = SentenceTransformer('all-MiniLM-L6-v2')
+    return model
 
 # view for homepage recommendations
 @api_view(['GET'])
@@ -42,7 +47,8 @@ def search(request):
     if not q:
         return Response([], status=200)
     
-    vec = model.encode(q).tolist()
+    current_model = get_model()
+    vec = current_model.encode(q).tolist()
     query = """
         SELECT id, title, plot, poster_url
         FROM api_movie
